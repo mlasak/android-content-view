@@ -1,7 +1,9 @@
-#!/bin/sh
+#!/bin/bash
  
 # Contributed to the webinos project.
 # License: http://www.apache.org/licenses/LICENSE-2.0 
+
+sceletons="project-sceletons.zip"
  
 echo "Exports all needed ContentShell resources and library projects."
 echo "---------------------------------------------------------------"
@@ -18,8 +20,11 @@ fi
 #setup clean export directory
 rm -rf export
 rm -f crexport.zip
-if [ -f project-sceletons.zip ]; then
- echo "project-sceletons.zip missing."
+if [ -f $sceletons ] 
+then
+ echo "$sceletons found."
+else
+ echo "$sceletons missing."
  exit
 fi
 mkdir -p export
